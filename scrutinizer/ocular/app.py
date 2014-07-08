@@ -12,7 +12,7 @@ def main():
 
 class App:
     def __init__(self):
-        self.introspector = RepositoryIntrospector(os.getcwd)
+        self.introspector = RepositoryIntrospector(os.getcwd())
 
     def run(self):
         args = self.parse_args()

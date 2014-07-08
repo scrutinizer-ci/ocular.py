@@ -21,7 +21,7 @@ class RepositoryIntrospectorTest(unittest.TestCase):
 
         call(['git', 'add', 'foo'], cwd=self.repository_dir.name)
         call(['git', 'commit', '-m', '"Adds foo"'], cwd=self.repository_dir.name)
-        self.first_revision = check_output(['git', 'rev-parse', 'HEAD'], cwd=self.repository_dir.name).strip()
+        self.first_revision = check_output(['git', 'rev-parse', 'HEAD'], cwd=self.repository_dir.name).strip().decode('ascii')
 
         f = open(self.repository_dir.name + '/bar', 'w')
         f.write("BAAAARRRRRR\n")
@@ -29,7 +29,7 @@ class RepositoryIntrospectorTest(unittest.TestCase):
 
         call(['git', 'add', 'bar'], cwd=self.repository_dir.name)
         call(['git', 'commit', '-m', '"Adds bar"'], cwd=self.repository_dir.name)
-        self.second_revision = check_output(['git', 'rev-parse', 'HEAD'], cwd=self.repository_dir.name).strip()
+        self.second_revision = check_output(['git', 'rev-parse', 'HEAD'], cwd=self.repository_dir.name).strip().decode('ascii')
 
         call(['git', 'remote', 'add', 'origin', 'git@github.com:scrutinizer-ci/ocular.py'], cwd=self.repository_dir.name)
 

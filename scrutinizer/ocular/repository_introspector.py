@@ -9,15 +9,15 @@ class RepositoryIntrospector:
         self.dir = repository_dir
 
     def get_current_revision(self):
-        return check_output(['git', 'rev-parse', 'HEAD'], cwd=self.dir).strip()
+        return check_output(['git', 'rev-parse', 'HEAD'], cwd=self.dir).strip().decode('ascii')
 
     def get_current_parents(self):
-        output = check_output(['git', 'log', '--pretty=%P', '-n1', 'HEAD'], cwd=self.dir).strip()
+        output = check_output(['git', 'log', '--pretty=%P', '-n1', 'HEAD'], cwd=self.dir).strip().decode('ascii')
 
         if output == "":
             return []
 
-        return output.split(b' ')
+        return output.split(' ')
 
     def get_repository_name(self):
         output = check_output(['git', 'remote', '-v'], cwd=self.dir).decode('ascii')
