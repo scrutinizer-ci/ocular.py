@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
 
@@ -16,7 +16,7 @@ class PyTest(TestCommand):
 setup(
     name='scrutinizer-ocular',
     version='1.0.0',
-    packages=['scrutinizer.ocular'],
+    packages=find_packages(),
     url='http://github.com/scrutinizer-ci/ocular.py',
     license='MIT',
     author='Scrutinizer',
