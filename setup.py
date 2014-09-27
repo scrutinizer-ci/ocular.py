@@ -15,7 +15,7 @@ class PyTest(TestCommand):
 
 setup(
     name='scrutinizer-ocular',
-    version='1.0.2',
+    version='1.0.3',
     packages=find_packages(exclude=['tests']),
     url='http://github.com/scrutinizer-ci/ocular.py',
     license='MIT',
